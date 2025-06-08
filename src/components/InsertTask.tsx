@@ -28,7 +28,7 @@ const InsertTask: React.FC<InsertTaskProps> = ({ darkMode = false }) => {
   return (
     <div
       className={
-        (darkMode ? 'bg-slate-800 text-white' : 'bg-white text-black') +
+        (darkMode ? 'bg-slate-800 text-white' : 'bg-gray-50 text-black') +
         ' p-4 rounded-lg mb-4'
       }
     >
@@ -52,7 +52,7 @@ const InsertTask: React.FC<InsertTaskProps> = ({ darkMode = false }) => {
           <option value="baja">Baja</option>
         </select>
         <button
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-500"
           onClick={handleAdd}
         >
           + Agregar

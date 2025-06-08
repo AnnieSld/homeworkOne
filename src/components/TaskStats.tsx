@@ -14,12 +14,12 @@ function TaskStats({ darkMode = false }: TaskStatsProps) {
   return (
     <div
       className={`${
-        darkMode ? 'bg-gray-800 text-white' : 'bg-blue-100 text-black'
+        darkMode ? 'bg-gray-800 text-white' : 'bg-blue-50 text-black'
       } flex justify-around text-center p-4 mb-4 rounded-lg shadow`}
     >
       <div
         className={`${
-          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+          darkMode ? 'bg-gray-600 text-gray-200' : 'bg-gray-100 text-gray-700'
         } rounded-md p-3 mx-2 flex-1`}
       >
         <p className="text-sm">Total de tareas</p>
@@ -27,7 +27,7 @@ function TaskStats({ darkMode = false }: TaskStatsProps) {
       </div>
       <div
         className={`${
-          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+          darkMode ? 'bg-gray-600 text-gray-200' : 'bg-gray-100 text-gray-700'
         } rounded-md p-3 mx-2 flex-1`}
       >
         <p className="text-sm">Completadas</p>
@@ -35,7 +35,7 @@ function TaskStats({ darkMode = false }: TaskStatsProps) {
       </div>
       <div
         className={`${
-          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+          darkMode ? 'bg-gray-600 text-gray-200' : 'bg-gray-100 text-gray-700'
         } rounded-md p-3 mx-2 flex-1`}
       >
         <p className="text-sm">Progreso</p>
