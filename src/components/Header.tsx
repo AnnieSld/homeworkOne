@@ -1,30 +1,63 @@
-import { Moon, User, Clock } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Moon, Sun, User, Clock } from "lucide-react";
 
-const Header = () => {
-  const hora = new Date().toLocaleTimeString();
+interface HeaderProps {
+  themeDark?: boolean;
+  onToggleTheme?: () => void;
+}
+
+function Header({ themeDark = false, onToggleTheme }: HeaderProps) {
+  const [hora, setHora] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHora(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const headerStyles = {
+    backgroundColor: themeDark ? "#1e293b" : "#f1f5f9", // dark: slate-800, light: slate-100
+    color: themeDark ? "#f8fafc" : "#0f172a",           // dark: slate-50, light: slate-900
+  };
 
   return (
-    <header className="flex justify-between items-start bg-blue-50 p-4 rounded-xl mb-6">
+    <header
+      style={headerStyles}
+        className="flex justify-between items-start p-4 rounded-xl shadow transition-colors duration-300"
+    >
       <div className="flex items-center gap-3">
-        <User className="w-6 h-6 text-gray-600" />
+        <User className="w-6 h-6" />
         <div>
           <h1 className="text-xl font-bold">¡Hola, Estudiante!</h1>
-          <p className="text-sm text-gray-500">Laboratorio de React Hooks</p>
+          <p className="text-sm opacity-70">Laboratorio de React Hooks</p>
         </div>
       </div>
 
       <div className="flex flex-col items-end gap-2">
-        <div className="flex items-center text-sm text-gray-600">
+        <div className="flex items-center text-sm opacity-70">
           <Clock className="w-4 h-4 mr-1" />
           <span className="font-mono">{hora}</span>
         </div>
-        <div className="flex items-center bg-gray-300 rounded-full px-3 py-1 text-sm text-gray-700 gap-1">
-          <Moon className="w-4 h-4 text-yellow-500" />
-          <span>Oscuro</span>
-        </div>
+        <button
+          className="mt-2 flex items-center gap-1 text-sm px-3 py-1 rounded bg-blue-600 text-white"
+          onClick={onToggleTheme}
+        >
+          {themeDark ? (
+            <>
+              <Sun className="w-4 h-4" />
+              Claro
+            </>
+          ) : (
+            <>
+              <Moon className="w-4 h-4" />
+              Oscuro
+            </>
+          )}
+        </button>
       </div>
     </header>
   );
-};
+}
 
 export default Header;
