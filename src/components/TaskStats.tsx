@@ -12,17 +12,33 @@ function TaskStats({ darkMode = false }: TaskStatsProps) {
   const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-100 text-black'} flex justify-around text-center p-4 mb-4 rounded-lg shadow`}>
-      <div>
-        <p className="text-gray-600 text-sm">Total de tareas</p>
+    <div
+      className={`${
+        darkMode ? 'bg-gray-800 text-white' : 'bg-blue-100 text-black'
+      } flex justify-around text-center p-4 mb-4 rounded-lg shadow`}
+    >
+      <div
+        className={`${
+          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+        } rounded-md p-3 mx-2 flex-1`}
+      >
+        <p className="text-sm">Total de tareas</p>
         <p className="text-xl font-bold">{total}</p>
       </div>
-      <div>
-        <p className="text-gray-600 text-sm">Completadas</p>
+      <div
+        className={`${
+          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+        } rounded-md p-3 mx-2 flex-1`}
+      >
+        <p className="text-sm">Completadas</p>
         <p className="text-xl font-bold text-green-600">{completed}</p>
       </div>
-      <div>
-        <p className="text-gray-600 text-sm">Progreso</p>
+      <div
+        className={`${
+          darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'
+        } rounded-md p-3 mx-2 flex-1`}
+      >
+        <p className="text-sm">Progreso</p>
         <p className="text-xl font-bold">{progress}%</p>
       </div>
     </div>

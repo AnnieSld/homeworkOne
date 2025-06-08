@@ -2,3 +2,15 @@
 @tailwindcss base;
 @tailwindcss components;
 @tailwindcss utilities;
+/* index.css */
+:root {
+  --background: #f1f5f9;      /* claro */
+  --text-primary: #0f172a;
+}
+
+[data-theme="dark"] {
+  --background: #0c0d1c;      /* oscuro */
+  --text-primary: #f8fafc;
+}
+
+/* Tailwind base setup */

@@ -21,15 +21,17 @@ export default function App() {
 
   return (
     <TaskProvider>
-      <main className="max-w-3xl mx-auto p-4 min-h-screen transition-all">
-      
-        <button
-          className="mb-4 px-4 py-2 rounded bg-blue-600 text-white"
-          onClick={() => setDarkMode((prev) => !prev)}
-        >
-          {darkMode ? "Modo Claro" : "Modo Oscuro"}
-        </button>
-        <Header themeDark={darkMode} />
+      <main
+        style={{
+          backgroundColor: "var(--background)",
+          color: "var(--text-primary)",
+        }}
+        className="max-w-3xl mx-auto p-4 min-h-screen transition-all"
+      >
+        <Header
+          themeDark={darkMode}
+          onToggleTheme={() => setDarkMode((prev) => !prev)}
+        />
         <TaskStats darkMode={darkMode} />
         <InsertTask darkMode={darkMode} />
         <TaskList darkMode={darkMode} />

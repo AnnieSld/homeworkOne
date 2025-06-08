@@ -16,7 +16,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  '--background': '#222',
+  '--background': '#1e293b',
   '--text-primary': '#fff',
   '--accent': '#79ffe1',
 };

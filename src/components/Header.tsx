@@ -3,9 +3,10 @@ import { Moon, Sun, User, Clock } from "lucide-react";
 
 interface HeaderProps {
   themeDark?: boolean;
+  onToggleTheme?: () => void;
 }
 
-function Header({ themeDark = false }: HeaderProps) {
+function Header({ themeDark = false, onToggleTheme }: HeaderProps) {
   const [hora, setHora] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -15,13 +16,16 @@ function Header({ themeDark = false }: HeaderProps) {
     return () => clearInterval(interval);
   }, []);
 
+  const headerStyles = {
+    backgroundColor: themeDark ? "#1e293b" : "#f1f5f9", // dark: slate-800, light: slate-100
+    color: themeDark ? "#f8fafc" : "#0f172a",           // dark: slate-50, light: slate-900
+  };
+
   return (
     <header
-      className={`${
-        themeDark ? "bg-gray-800 text-white" : "bg-blue-100 text-black"
-      } flex justify-between items-start p-4 rounded-xl mb-6 shadow relative`}
+      style={headerStyles}
+        className="flex justify-between items-start p-4 rounded-xl shadow transition-colors duration-300"
     >
-      {/* Info usuario */}
       <div className="flex items-center gap-3">
         <User className="w-6 h-6" />
         <div>
@@ -30,13 +34,15 @@ function Header({ themeDark = false }: HeaderProps) {
         </div>
       </div>
 
-      {/* Reloj y modo */}
       <div className="flex flex-col items-end gap-2">
         <div className="flex items-center text-sm opacity-70">
           <Clock className="w-4 h-4 mr-1" />
           <span className="font-mono">{hora}</span>
         </div>
-        <span className="mt-2 flex items-center gap-1 text-sm">
+        <button
+          className="mt-2 flex items-center gap-1 text-sm px-3 py-1 rounded bg-blue-600 text-white"
+          onClick={onToggleTheme}
+        >
           {themeDark ? (
             <>
               <Sun className="w-4 h-4" />
@@ -48,10 +54,9 @@ function Header({ themeDark = false }: HeaderProps) {
               Oscuro
             </>
           )}
-        </span>
+        </button>
       </div>
     </header>
-
   );
 }
 
