@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Moon, Sun, User, Clock } from "lucide-react";
+import InsertTask from "./InsertTask";
 
 interface HeaderProps {
   themeDark?: boolean;
@@ -17,8 +18,8 @@ function Header({ themeDark = false, onToggleTheme }: HeaderProps) {
   }, []);
 
   const headerStyles = {
-    backgroundColor: themeDark ? "#1e293b" : "#f1f5f9", // dark: slate-800, light: slate-100
-    color: themeDark ? "#f8fafc" : "#0f172a",           // dark: slate-50, light: slate-900
+    backgroundColor: themeDark ? "#1e293b" : "#edf5fb", 
+    color: themeDark ? "#f8fafc" : "#0f172a",          
   };
 
   return (
@@ -40,7 +41,11 @@ function Header({ themeDark = false, onToggleTheme }: HeaderProps) {
           <span className="font-mono">{hora}</span>
         </div>
         <button
-          className="mt-2 flex items-center gap-1 text-sm px-3 py-1 rounded bg-blue-600 text-white"
+          className={`mt-2 flex items-center gap-1 text-sm px-2 py-1 rounded ${
+            themeDark
+              ? "bg-gray-950 text-white" 
+              : "bg-gray-200 text-gray-900"
+          }`}
           onClick={onToggleTheme}
         >
           {themeDark ? (
@@ -55,8 +60,12 @@ function Header({ themeDark = false, onToggleTheme }: HeaderProps) {
             </>
           )}
         </button>
+        
+        
+
       </div>
     </header>
+    
   );
 }
 

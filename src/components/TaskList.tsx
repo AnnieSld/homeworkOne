@@ -20,7 +20,7 @@ interface TaskListProps {
 function TaskList({ darkMode = false }: TaskListProps) {
   const { tasks, toggleTask, removeTask } = useTasks();
 
-  const themeBg = darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black';
+  const themeBg = darkMode ? 'bg-gray-800 text-white' : 'bg-gray-50 text-black';
   const themeShadow = darkMode ? 'shadow-lg' : 'shadow';
   const themePriorityColors = darkMode ? darkPriorityColors : priorityColors;
 

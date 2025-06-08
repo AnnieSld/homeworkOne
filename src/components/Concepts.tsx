@@ -10,15 +10,15 @@ const concepts = [
 ];
 
 const lightTheme = {
-  '--background': '#fff',
+  '--background': '#edf5fb',
   '--text-primary': '#222',
-  '--accent': '#0070f3',
+  '--accent': '#222',
 };
 
 const darkTheme = {
   '--background': '#1e293b',
   '--text-primary': '#fff',
-  '--accent': '#79ffe1',
+  '--accent': '#fff',
 };
 
 type ConceptsProps = {
